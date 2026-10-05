@@ -203,4 +203,18 @@ visApi().onWidgetLoadedListener({ guid: '123', widgetGuid: w.general.renderTo },
 });
 ```
 
-![Сворачивание определенных путей иерархии заголовков](img/collapse-items.png)
+![Сворачивание определенных путей иерархии заголовков](img/collapse-items-1.png)
+
+```js
+let table = OlapTableRender({
+    general: w.general,
+    pivotGridOptions: w.pivotGridOptions
+});
+
+visApi().onWidgetLoadedListener({ guid: '123', widgetGuid: w.general.renderTo }, () => {
+    let ds = table.pivotGridInstance.getDataSource();
+    ds.collapseHeaderItem("column", ["Уровень1Столбец1", "Уровень2Столбец2"]);
+});
+```
+
+![Сворачивание определенных путей иерархии заголовков](img/collapse-items-2.png)
